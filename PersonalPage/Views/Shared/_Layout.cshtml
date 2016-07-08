@@ -4,15 +4,15 @@
     <meta charset="utf-8" />
     <title>Hello world!</title>@*@ViewBag.Title*@
     <link href="~/Content/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-  
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=0.1; maximum-scale=10.0; user-scalable=1;" />
+    <meta name="viewport" content="user-scalable=yes" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    
+
     <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
     <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/superhero/bootstrap.min.css" rel="stylesheet" />
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
@@ -26,6 +26,8 @@
 
 
     <div class="container">
+
+
         <header>
             <nav id="navbar">
                 <ul class="nav nav-pills">
@@ -36,30 +38,30 @@
                         </a>
                     </li>
                     @*<li>
-                        <a href="#cv">
-                            <!-- i.fa.fa-wrench--> CV
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#portfolio">
-                            <!-- i.fa.fa-code--> Websites
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#projects">
-                            <!-- i.fa.fa-gear.fa-spin--> Projects
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact">
-                            <!-- i.fa.fa-phone--> Contact
-                        </a>
-                    </li>*@
+                            <a href="#cv">
+                                <!-- i.fa.fa-wrench--> CV
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio">
+                                <!-- i.fa.fa-code--> Websites
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#projects">
+                                <!-- i.fa.fa-gear.fa-spin--> Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact">
+                                <!-- i.fa.fa-phone--> Contact
+                            </a>
+                        </li>*@
                 </ul>
             </nav>
         </header>
-        
-        
+
+
         <main>
 
             @RenderBody()
@@ -93,55 +95,81 @@
                     </a>
                 </li>
                 @*<li>
-                    <a href="#cv">
-                        <!-- i.fa.fa-wrench--> CV
-                    </a>
-                </li>
-                <li>
-                    <a href="#portfolio">
-                        <!-- i.fa.fa-code--> Websites
-                    </a>
-                </li>
-                <li>
-                    <a href="#projects">
-                        <!-- i.fa.fa-gear.fa-spin--> Projects
-                    </a>
-                </li>
-                <li>
-                    <a href="#contact">
-                        <!-- i.fa.fa-phone--> Contact
-                    </a>
-                </li>*@
+                        <a href="#cv">
+                            <!-- i.fa.fa-wrench--> CV
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#portfolio">
+                            <!-- i.fa.fa-code--> Websites
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects">
+                            <!-- i.fa.fa-gear.fa-spin--> Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact">
+                            <!-- i.fa.fa-phone--> Contact
+                        </a>
+                    </li>*@
             </ul>
             <div class="navbar-text"><a href="#" class="navbar-link"><i class="fa fa-reply fa-1x fa-rotate-90"></i> Back to top</a></div>
         </div>
 
-        <div id="bg" data-0="transform: translate(0px, 0px)" data-end="transform: translate(0, -60px)"></div>
-        <!--#bg-overlay-top-->
-        <div id="bg-overlay-bottom"></div>
-        <div id="bg-grass"></div>
-    
+
+
+
+
+
 
         @RenderSection("Scripts", required: false)
-
+        <div id="bg-blood"></div>
     </div>
 
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-              
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-          
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
-                    </ul>
-       
-                </div>
-            </div>
-        </div>
+    @*<div id="bg-overlay-bottom"></div>*@
+
+
+    <div id="bg-grass"></div>
+    <div id="bg"></div>
+
+    <script>
+        var a = $(window).height();   // returns height of browser viewport
+        var b = $(document).height(); // returns height of HTML document
+        //var hgt = screen.height();
+
+
+        var grass_height = 96;
+
+        var w = window,
+            d = document,
+            e = d.documentElement,
+            g = d.getElementsByTagName('body')[0],
+            x = w.innerWidth || e.clientWidth || g.clientWidth,
+            y = w.innerHeight || e.clientHeight || g.clientHeight;
+
         
 
-    *@
+
+
+        $(window).resize(function () {
+            var body = document.getElementsByTagName('body')[0];
+
+            $("#bg").css("height", body.clientHeight + "px");
+            $("#bg-grass").css("top", (body.clientHeight - grass_height + 1) + "px");
+
+            if (body.clientWidth < 1200) {
+                $("#bg-blood").css("left", 15 + "px");
+            } else {
+                $("#bg-blood").css("left", 50 + "px");
+            }
+        }).resize()
+
+        $(window).scroll(function () {
+            $("span").css("display", "inline").fadeOut("slow");
+        });
+
+    </script>
 </body>
 </html>
