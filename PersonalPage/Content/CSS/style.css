@@ -1,0 +1,148 @@
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    background: #000 url("../Images/background.jpg") 50% 0 no-repeat;
+    background-size: 100% auto;
+}
+
+#bg-overlay-top {
+    position: fixed;
+    height: 450px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #1A0017 87%);
+}
+
+#bg-overlay-bottom {
+    position: fixed;
+    height: 450px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #1A0017 87%);
+}
+
+#bg-grass {
+    position: fixed;
+    height: 96px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: url('../Images/grass-w.png') center bottom repeat-x;
+}
+
+html {
+    background: white;
+    
+}
+body {
+    font-family: 'Special Elite';
+    
+    /*background: url('../Images/grass-w.png') center bottom repeat-x;*/
+    background: none;
+    /*-webkit-animation: slide 10s linear infinite;
+    -moz-animation: slide 10s linear infinite;
+    animation: slide 10s linear infinite;*/
+    font-size: 18px;
+    font-weight: 400;
+}
+header, main, footer {
+    margin: 0 auto;
+    width: 1069px;
+    /* width of content */
+    padding-left: 300px;
+    overflow: hidden;
+}
+header {
+    min-height: 391px;
+    position: relative;
+    background-image: url('../Images/header-w.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+header > nav {
+    position: absolute;
+    bottom: 0;
+}
+.home-nav-link {
+    font-family: 'Bangers';
+}
+h1, .btn {
+    font-family: 'Permanent Marker';
+}
+h1 > small {
+    font-family: 'Bangers';
+}
+
+main {
+    background-image: url('../Images/blood-w.png');
+    background-repeat: repeat-y;
+    background-position: left bottom;
+    margin-bottom: -200px;
+    /* height of footer */
+    padding-bottom: 200px;
+    /* height of footer */
+    
+    padding-right: 20px;
+}
+footer#footer {
+    min-height: 200px;
+    /* height of footer */
+    padding-top: 10px;
+    text-align: center;
+}
+#footer a.social {
+    padding: 10px;
+    color: white;
+}
+#footer a.social > span {
+    vertical-align: super;
+}
+#home, #cv, #portfolio, #projects, #contact {
+}
+#side-navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+}
+@-webkit-keyframes slide {
+    0% {
+        background-position: 0 bottom;
+    }
+    100% {
+        background-position: 307px bottom;
+    }
+}
+@-moz-keyframes slide {
+    0% {
+        background-position: 0 bottom;
+    }
+    100% {
+        background-position: 307px bottom;
+    }
+}
+@keyframes slide {
+    0% {
+        background-position: 0 bottom;
+    }
+    100% {
+        background-position: 307px bottom;
+    }
+}
+.jumbotron {
+    background-color: black;
+}
+
+/* hack from the bowels of hell */
+.alert-dismissable .close {
+    right: 0px;
+}

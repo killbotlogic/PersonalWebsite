@@ -2,43 +2,146 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello world!</title>@*@ViewBag.Title*@
+    <link href="~/Content/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=0.1; maximum-scale=10.0; user-scalable=1;" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/superhero/bootstrap.min.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Special+Elite:400,400italic,700,700italic|Bangers:400|Permanent+Marker:400|Limelight:400&amp;subset=latin,latin-ext" rel="stylesheet" />
+
+
+    <link href="~/Content/CSS/style.css" rel="stylesheet" />
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
+
+
+    <div class="container">
+        <header>
+            <nav id="navbar">
+                <ul class="nav nav-pills">
+                    <li><a href="#" class="home-nav-link"><i class="fa fa-play-circle-o"></i> Killbot Logic</a></li>
+                    <li>
+                        <a href="#about">
+                            <!-- i.fa.fa-bug--> About Me
+                        </a>
+                    </li>
+                    @*<li>
+                        <a href="#cv">
+                            <!-- i.fa.fa-wrench--> CV
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#portfolio">
+                            <!-- i.fa.fa-code--> Websites
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects">
+                            <!-- i.fa.fa-gear.fa-spin--> Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact">
+                            <!-- i.fa.fa-phone--> Contact
+                        </a>
+                    </li>*@
                 </ul>
-                @Html.Partial("_LoginPartial")
+            </nav>
+        </header>
+        
+        
+        <main>
+
+            @RenderBody()
+            @RenderSection("SPAViews", required: false)
+
+        </main>
+
+
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 style="text-align: left;">Some links:</h4>
+                    <div>
+                        <a href="https://github.com/killbotlogic" target="_blank" class="social"><i class="fa fa-github fa-2x fa-fw"></i><span>GitHub</span></a>
+                        <a href="https://www.linkedin.com/in/killbotlogic" target="_blank" class="social"><i class="fa fa-linkedin-square fa-2x fa-fw"></i><span>LinkedIn</span></a>
+                        <a href="https://play.google.com/store/apps/developer?id=Killbot+Logic" target="_blank" class="social"><i class="fa fa-android fa-2x fa-fw"></i><span>Google Play</span></a>
+                    </div>
+                    <h5>&copy; 1988 - @DateTime.Now.Year Killbot Logic</h5>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        @RenderSection("SPAViews", required: false)
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
+
+
+        <div id="side-navbar" class="visible-lg">
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="#" class="home-nav-link"><i class="fa fa-play-circle-o"></i> Killbot Logic</a></li>
+                <li>
+                    <a href="#about">
+                        <!-- i.fa.fa-bug--> About Me
+                    </a>
+                </li>
+                @*<li>
+                    <a href="#cv">
+                        <!-- i.fa.fa-wrench--> CV
+                    </a>
+                </li>
+                <li>
+                    <a href="#portfolio">
+                        <!-- i.fa.fa-code--> Websites
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects">
+                        <!-- i.fa.fa-gear.fa-spin--> Projects
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <!-- i.fa.fa-phone--> Contact
+                    </a>
+                </li>*@
+            </ul>
+            <div class="navbar-text"><a href="#" class="navbar-link"><i class="fa fa-reply fa-1x fa-rotate-90"></i> Back to top</a></div>
+        </div>
+
+        <div id="bg" data-0="transform: translate(0px, 0px)" data-end="transform: translate(0, -60px)"></div>
+        <!--#bg-overlay-top-->
+        <div id="bg-overlay-bottom"></div>
+        <div id="bg-grass"></div>
+    
+
+        @RenderSection("Scripts", required: false)
+
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("Scripts", required: false)
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+              
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+          
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
+                    </ul>
+       
+                </div>
+            </div>
+        </div>
+        
+
+    *@
 </body>
 </html>
